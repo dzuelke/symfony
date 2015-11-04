@@ -225,7 +225,7 @@ class ParameterBag implements ParameterBagInterface
 
         $self = $this;
 
-        return preg_replace_callback('/%%|%([^%\s]+)%/', function ($match) use ($self, $resolving, $value) {
+        return preg_replace_callback('/%%|%([^%\s]+)%/', function ($match) use ($self, $resolving, $value, $protectEnvVariables) {
             // skip %%
             if (!isset($match[1])) {
                 return '%%';
